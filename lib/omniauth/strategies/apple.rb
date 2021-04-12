@@ -51,6 +51,10 @@ module OmniAuth
       def new_nonce
         puts "********* request params apple login *********"
         puts request.params
+
+        puts "********* options apple login *********"
+        puts options
+
         session['omniauth.state'] = request.params[:state] if request.params[:state]
         session['omniauth.nonce'] = SecureRandom.urlsafe_base64(16)
       end
