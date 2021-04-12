@@ -49,6 +49,7 @@ module OmniAuth
       private
 
       def new_nonce
+        session['omniauth.state'] = request.params[:state] if request.params[:state]
         session['omniauth.nonce'] = SecureRandom.urlsafe_base64(16)
       end
 
